@@ -34,13 +34,13 @@
             </p>
             <p>
                 When changes are made to this project's <a href="https://github.com/Naparise/Static-CI-Website", target="_blank">GitHub repository</a>, 
-                Jenkins automatically moves these changes over to the working copy on the S3 instance.
+                Jenkins automatically copies these changes over to the S3 bucket
             </p>
-			<p>
-				CloudFront is additionally used to decrease response time and provide a secure connection, but the S3 bucket remains externally accessible.
-				This is done primarily for convenience, as CloudFront does not immediately update its cache to reflect changes in the S3 bucket.
-				In a real world scenario we would disable access to anything "behind" CloudFront for security purposes.
-			</p>
+		<p>
+			CloudFront is additionally used to decrease response time and provide a secure connection, but the S3 bucket remains externally accessible.
+			This is done primarily for convenience, as CloudFront does not immediately update its cache to reflect changes in the S3 bucket.
+			In a real world scenario we would disable access to anything "behind" CloudFront for security purposes.
+		</p>
             <footer id="footer">
                 <ul>
                     <li>
