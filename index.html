@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>Nathaniel's Website</title>
+        <link rel="stylesheet" href="styles/style.css">
+
+    </head>
+    <body>
+
+        <nav class="navContent">
+            <h2 class="center">Project Content</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://github.com/Naparise/Static-CI-Website" target="_blank">GitHub</a></li>
+                <li><a href="">Report</a></li>
+            </ul>
+        </nav>
+
+        <nav class="navContent">
+            <h2 class="center">Resources</h3>
+            <ul>
+                
+            </ul>
+        </nav>
+
+        <main id="mainContent">
+
+            <h1>Welcome to my website!</h1>
+
+            <p>
+                This website is hosted on an AWS S3 bucket. It demonstrates continuous deployment using a Jenkins server running on an EC2 instance.
+            </p>
+            <p>
+                When changes are made to this project's <a href="https://github.com/Naparise/Static-CI-Website", target="_blank">GitHub repository</a>, 
+                Jenkins automatically moves these changes over to the working copy on the S3 instance.
+            </p>
+
+
+            <footer id="footer">
+                <ul>
+                    <li>
+                        <p>Website by Nathaniel Parise</p>
+                    </li>
+                    <li>
+                        •
+                    </li>
+                    <li>
+                        <p id="dateElement">Today's Date: </p>
+                    </li>
+                </ul>
+            </footer>
+        </main>
+
+    </body>
+    <script src="js/main.js"></script>
+</html>
