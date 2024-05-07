@@ -1,1 +1,1 @@
-Web server for CS293 Final Project
+Web server for CS293 Final Project - Continuous Integration
