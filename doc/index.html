@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>Final Project Report</title>
+        <link rel="stylesheet" href="../styles/style.css">
+
+    </head>
+    <body>
+
+        <div id="sidebar">
+            <nav class="navContent">
+                <h2 class="center">Project Content</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html">Report</a></li>
+                    <li><a href="https://github.com/Naparise/Static-CI-Website" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+
+            <nav class="navContent">
+                <h2 class="center">Resources</h3>
+                <ul>
+                    <li><a href="https://plugins.jenkins.io/s3/" target="_blank">S3 Publisher Plugin</a></li>
+                    <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html" target="_blank">S3 Policy Examples</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <main id="mainContent">
+
+            <h1 class="center">CS293 Final Project Report</h1>
+            <p class="center">By Nathaniel Parise</p>
+
+            <section class="reportSection">
+                <h2>Project Description</h3>
+                <p class="indent">In this project, I was tasked with using Jenkins in an AWS EC2 Instance to automatically update an S3 bucket with the contents of a GitHub repository. The repository contains static website code in the form of HTML, CSS, and JavaScript files. Together, they form a basic home page that describes the project’s implementation and links to related resources. Beyond GitHub and the creation of the website, all my work was done using AWS on a free tier account. Jenkins plugins were used to push the GitHub content to the S3 bucket, and IAM roles were used to allow communication between the necessary AWS components.</p>
+            </section>
+
+            <section class="reportSection">
+                <h2>Implementation</h3>
+                <p class="indent">While the Jenkins-related sections of the project seem comparable to the lab previously covered in class, much of the configuration process had to be modified as it no longer relies on the Maven Integration plugin. Because the website code in the repository can be used as-is, no steps are needed within the building stage. My method for moving content from the workspace to the S3 bucket involved the “S3 Publisher” plugin which is installable within Jenkins. This plugin adds new options to the build configuration, notably allowing the contents of the build workspace to be copied into the S3 bucket in the post-build step. The difficulty of this solution came from getting the plugin to properly connect to and communicate with the S3 bucket. To do this, an S3 bucket “profile” had to be created in the Jenkins system configuration, and an IAM role was created to allow the EC2 instance to add and remove content from the bucket specified in this profile. From there, a specific query string tells the plugin which files to include from the workspace, and the plugin takes care of the transfer process.</p>
+                <p class="indent">An alternative route had to be taken to get a signed certificate on my website due to issues with the AWS Certificate Manager. Many demonstrations of the Certificate Manager involve validating DNS addresses through Route 53, but it does not seem to work with addresses directly to the S3 bucket or CloudFront origin. Because the Certificate Manager refuses to validate my certificate requests, I used CloudFront’s HTTPS redirect option to provide an Amazon-signed certificate on my website. CloudFront enables HTTPS by default, and enforcing this redirect simply prevents the HTTP version of the website from being accessed. The S3 bucket is still publicly accessible through its HTTP address for testing and demonstration purposes, but this could easily be closed by re-enabling certain access rules in the S3 bucket’s permissions.</p>
+            </section>
+            
+            <section class="reportSection">
+                <h2>Insights and Conclusion</h3>
+                <p class="indent">This project helped me to understand how many components covered in class can be interlinked with the help of IAM roles and external tools. The most challenging part of my approach involved getting the S3 plugin in Jenkins to correctly read from the build workspace. I didn’t have any knowledge of the workspace in our previous Jenkins lab, but after working with it, the entire process makes much more sense to me. I also recognize the utility of S3 storage versus hosting content in EC2 instances; while the static nature of S3 can be limiting, it is incredibly valuable in the right situation. Lastly, this is the first time I noticed the usefulness of IAM roles and other permission-related entities in AWS. The way everything linked together in the end was incredibly satisfying and I can now comprehend how these concepts might be expanded in larger projects.</p>
+            </section>
+
+        </main>
+        
+        <footer id="footer">
+            <ul>
+                <li>
+                    <p>Website by Nathaniel Parise</p>
+                </li>
+                <li>
+                    -
+                </li>
+                <li>
+                    <p>Hosted on AWS S3</p>
+                </li>
+                <li>
+                    -
+                </li>
+                <li>
+                    <p id="dateElement">Today's Date: </p>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

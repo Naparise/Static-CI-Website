@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
 
@@ -9,21 +8,24 @@
     </head>
     <body>
 
-        <nav class="navContent">
-            <h2 class="center">Project Content</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="https://github.com/Naparise/Static-CI-Website" target="_blank">GitHub</a></li>
-                <li><a href="">Report</a></li>
-            </ul>
-        </nav>
-
-        <nav class="navContent">
-            <h2 class="center">Resources</h3>
-            <ul>
-                
-            </ul>
-        </nav>
+        <div id="sidebar">
+            <nav class="navContent">
+                <h2 class="center">Project Content</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="doc/index.html">Report</a></li>
+                    <li><a href="https://github.com/Naparise/Static-CI-Website" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+    
+            <nav class="navContent">
+                <h2 class="center">Resources</h3>
+                <ul>
+                    <li><a href="https://plugins.jenkins.io/s3/" target="_blank">S3 Publisher Plugin</a></li>
+                    <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html" target="_blank">S3 Policy Examples</a></li>
+                </ul>
+            </nav>
+        </div>
 
         <main id="mainContent">
 
@@ -36,32 +38,35 @@
                 When changes are made to this project's <a href="https://github.com/Naparise/Static-CI-Website", target="_blank">GitHub repository</a>, 
                 Jenkins automatically copies these changes over to the S3 bucket.
             </p>
-		<p>
-			CloudFront is additionally used to decrease response time and provide a secure connection, but the S3 bucket remains externally accessible.
-			This is done primarily for convenience, as CloudFront does not immediately update its cache to reflect changes in the S3 bucket.
-			In a real world scenario we would disable access to anything "behind" CloudFront for security purposes.
-		</p>
-            <footer id="footer">
-                <ul>
-                    <li>
-                        <p>Website by Nathaniel Parise</p>
-                    </li>
-                    <li>
-                        -
-                    </li>
-                    <li>
-                        <p>Hosted on AWS S3</p>
-                    </li>
-                    <li>
-                        -
-                    </li>
-                    <li>
-                        <p id="dateElement">Today's Date: </p>
-                    </li>
-                </ul>
-            </footer>
+			<p>
+				CloudFront is additionally used to decrease response time and provide a secure connection, but the S3 bucket remains externally accessible.
+				This is done primarily for convenience, as CloudFront does not immediately update its cache to reflect changes in the S3 bucket.
+				In a real world scenario we would disable access to anything "behind" CloudFront for security purposes.
+			</p>
+            
         </main>
 
+        <footer id="footer">
+            <ul>
+                <li>
+                    <p>Website by Nathaniel Parise</p>
+                </li>
+                <li>
+                    -
+                </li>
+                <li>
+                    <p>Hosted on AWS S3</p>
+                </li>
+                <li>
+                    -
+                </li>
+                <li>
+                    <p id="dateElement">Today's Date: </p>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="js/main.js"></script>
     </body>
-    <script src="js/main.js"></script>
+    
 </html>

@@ -16,31 +16,42 @@ li {
 }
 
 .center {
-
     text-align: center;
+}
+
+.indent {
+
+    text-indent: 50px;
 }
 
 #mainContent {
 
     max-width: 70%;
-    margin: auto;
+    margin: 0px auto 100px auto;
+}
+
+#sidebar {
+
+    position: fixed;
+    
+    
+    margin-left: 16px;
+    width: 12vw;
 }
 
 .navContent {
-
-    float: left;
-    clear: both;
-
-    margin: 16px 16px 32px 16px;
-    width: 12%;
+    
     border-radius: 4px;
     background-color: powderblue;
+
+    padding-top: 8px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .navContent ul {
 
     list-style: square;
-    padding-bottom: 16px;
 }
 
 .navContent li {
@@ -76,4 +87,9 @@ li {
     margin: 0px 4px 0px 4px;
     list-style: none;
     display: inline-block;
+}
+
+.reportSection {
+
+    margin-bottom: 36px;
 }
